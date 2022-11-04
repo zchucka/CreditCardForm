@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import CreditCard from './CreditCard';
 import Box from '@mui/material/Box';
 
+// A component that shows a sample credit card along with the credit card form beneath
+//  The sample card is handled by the CreditCard component located in CreditCard.js
 export default function CreditForm() {
   const [cardNumber, setCardNumber] = React.useState();
   const [cardName, setCardName] = React.useState();
