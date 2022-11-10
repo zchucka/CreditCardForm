@@ -8,9 +8,9 @@ import Box from '@mui/material/Box';
 // A component that shows a sample credit card along with the credit card form beneath
 //  The sample card is handled by the CreditCard component located in CreditCard.js
 export default function CreditForm() {
-  const [cardNumber, setCardNumber] = React.useState();
-  const [cardName, setCardName] = React.useState();
-  const [expiration, setExpiration] = React.useState();
+  const [cardNumber, setCardNumber] = React.useState("");
+  const [cardName, setCardName] = React.useState("");
+  const [expiration, setExpiration] = React.useState("");
   const [cvv, setCVV] = React.useState();
 
   const regex = new RegExp("[0-9]{4}|[0-9]{1,3}", "g");
@@ -18,12 +18,15 @@ export default function CreditForm() {
   // uses regex match to match the pattern for the credit card number, fires for onChange of the cardNumber field
   const cardNumberChange = (newValue) => {
     if (newValue.length > 0) {
+      console.log(cardNumber);
       var updatedValue = newValue.match(regex);
       if (updatedValue) {
+        console.log("regex passed somehow")
         setCardNumber(updatedValue.join(' '));
       }
       // catches the edge case of deleting when the field is empty
     } else {
+      console.log("length is zero")
       setCardNumber(newValue);
     }
   };
